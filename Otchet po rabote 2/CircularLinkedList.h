@@ -6,74 +6,74 @@
 using namespace std;
 
 /**
-* \brief Структура узла
+* \brief РЎС‚СЂСѓРєС‚СѓСЂР° СѓР·Р»Р°
  */
 struct Node
 {
 private:
 	/**
-	 * \brief Данные узла
+	 * \brief Р”Р°РЅРЅС‹Рµ СѓР·Р»Р°
 	 */
 	int data;
 	/**
-	 * \brief Указатель на следующий узел в списке
+	 * \brief РЈРєР°Р·Р°С‚РµР»СЊ РЅР° СЃР»РµРґСѓСЋС‰РёР№ СѓР·РµР» РІ СЃРїРёСЃРєРµ
 	 */
 	Node* next;
 
-	friend class CircularLinkedList; // Для возможности классу ЦОС обращаться к privite полям Node
+	friend class CircularLinkedList; // Р”Р»СЏ РІРѕР·РјРѕР¶РЅРѕСЃС‚Рё РєР»Р°СЃСЃСѓ Р¦РћРЎ РѕР±СЂР°С‰Р°С‚СЊСЃСЏ Рє privite РїРѕР»СЏРј Node
 public:
 	/**
-	 * \brief Консруктор по умолчанию
+	 * \brief РљРѕРЅСЃСЂСѓРєС‚РѕСЂ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
 	 */
 	Node() noexcept;
 	/**
-	 * \brief Консруктор с параметрами
+	 * \brief РљРѕРЅСЃСЂСѓРєС‚РѕСЂ СЃ РїР°СЂР°РјРµС‚СЂР°РјРё
 	 */
 	Node(const int data_) noexcept;
 	/**
-	 * \brief Деструктор
+	 * \brief Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
 	 */
 	~Node() noexcept;
 };
 
 /**
- * \brief Класс ЦОС
+ * \brief РљР»Р°СЃСЃ Р¦РћРЎ
  */
 class CircularLinkedList
 {
 private:
 	/**
-	* \brief Указатель на голову списка
+	* \brief РЈРєР°Р·Р°С‚РµР»СЊ РЅР° РіРѕР»РѕРІСѓ СЃРїРёСЃРєР°
 	*/
 	Node* head;
 	/**
-	* \brief Удаление узла с ЦОС
+	* \brief РЈРґР°Р»РµРЅРёРµ СѓР·Р»Р° СЃ Р¦РћРЎ
 	*/
 	Node* delete_head(Node *node);
 public:
 	/**
-	* \brief Консруктор по умолчанию
+	* \brief РљРѕРЅСЃСЂСѓРєС‚РѕСЂ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
 	*/
 	CircularLinkedList() noexcept;
 	/**
-	 * \brief Деструктор
+	 * \brief Р”РµСЃС‚СЂСѓРєС‚РѕСЂ
 	 */
 	~CircularLinkedList() noexcept;
 	/**
-	* \brief Добавление узла в ЦОС
+	* \brief Р”РѕР±Р°РІР»РµРЅРёРµ СѓР·Р»Р° РІ Р¦РћРЎ
 	*/
 	void add_node(Node* node) noexcept;
 	/**
-	* \brief Удаление узла с ЦОС
+	* \brief РЈРґР°Р»РµРЅРёРµ СѓР·Р»Р° СЃ Р¦РћРЎ
 	*/
 	void remove() noexcept;
 	/**
-	* \brief Поиск узла в ЦОС
+	* \brief РџРѕРёСЃРє СѓР·Р»Р° РІ Р¦РћРЎ
 	*/
 	bool find_node(const int data_) const noexcept;
     /**
-     * \brief Печать списка
-     * \return Строка, содержащая узлы списка
+     * \brief РџРµС‡Р°С‚СЊ СЃРїРёСЃРєР°
+     * \return РЎС‚СЂРѕРєР°, СЃРѕРґРµСЂР¶Р°С‰Р°СЏ СѓР·Р»С‹ СЃРїРёСЃРєР°
      */
 	string print_list() const;
 };
