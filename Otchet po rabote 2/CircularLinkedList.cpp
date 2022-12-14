@@ -1,7 +1,5 @@
 #include "CircularLinkedList.h"
 
-Node::Node() noexcept : data(), next(nullptr) {}
-
 Node::Node(const int data_) noexcept : data(data_) {}
 
 Node::~Node() noexcept
@@ -34,8 +32,10 @@ CircularLinkedList::~CircularLinkedList() noexcept
     head = nullptr;
 }
 
-void CircularLinkedList::add_node(Node* node) noexcept
+void CircularLinkedList::add_node(const int data_) noexcept
 {
+    auto node = new Node(data_);
+
     if (head == nullptr)
     {
         head = node;
@@ -50,9 +50,7 @@ void CircularLinkedList::add_node(Node* node) noexcept
         {
             ptr = ptr->next;
         }
-
         ptr->next = node;
-
         node->next = head;
 
         head = node;
@@ -89,20 +87,19 @@ bool CircularLinkedList::find_node(const int data_) const noexcept
 {
     if (head == nullptr)
     {
-        throw invalid_argument("Не существует узла с данным значением!");
+        throw invalid_argument("РќРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚ СѓР·Р»Р° СЃ РґР°РЅРЅС‹Рј Р·РЅР°С‡РµРЅРёРµРј!");
     }
 
-    Node* current = head;
+    Node* current = head->next;
 
-    while (current && current->next != head)
+    while (current != head)
     {
         if (current->data == data_)
-            break;
+            return current != nullptr;
         else
-            return false;
+            current = current->next;
     }
-
-    return current != nullptr;
+    return current == nullptr;
 }
 
 string CircularLinkedList::print_list() const
@@ -111,7 +108,7 @@ string CircularLinkedList::print_list() const
 
     if (head == nullptr)
     {
-        throw invalid_argument("Список пуст!");
+        throw invalid_argument("РЎРїРёСЃРѕРє РїСѓСЃС‚!");
     }
     else
     {
