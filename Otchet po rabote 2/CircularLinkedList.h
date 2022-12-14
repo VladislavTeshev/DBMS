@@ -23,10 +23,6 @@ private:
 	friend class CircularLinkedList; // Для возможности классу ЦОС обращаться к privite полям Node
 public:
 	/**
-	 * \brief Консруктор по умолчанию
-	 */
-	Node() noexcept;
-	/**
 	 * \brief Консруктор с параметрами
 	 */
 	Node(const int data_) noexcept;
@@ -62,7 +58,7 @@ public:
 	/**
 	* \brief Добавление узла в ЦОС
 	*/
-	void add_node(Node* node) noexcept;
+	void add_node(const int data_) noexcept;
 	/**
 	* \brief Удаление узла с ЦОС
 	*/
